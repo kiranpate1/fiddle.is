@@ -24,3 +24,55 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 64px;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 48px;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  line-height: 1.35;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+
+p {
+  font-size: 16px;
+  letter-spacing: 0em;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+p.caption {
+  font-family: var(--font-geist-mono);
+  letter-spacing: 0em;
+}
+
+.ascii {
+  margin: 0;
+  white-space: pre;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6666vw;
+  line-height: 1.25;
+  letter-spacing: 0;
+  overflow: hidden;
+}
