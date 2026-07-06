@@ -18,7 +18,9 @@ export default function Navigation() {
   const hoveredConnectionRef = useRef<HTMLElement | null>(null);
   const hoverTargetRef = useRef(0);
   const hoverProgressRef = useRef(0);
+  const mouseMoveTailUntilRef = useRef(0);
   const HOVER_LERP = 0.22;
+  const MOUSE_MOVE_TAIL_MS = 200;
 
   const updateWireColors = () => {
     const rootStyles = getComputedStyle(document.documentElement);
@@ -207,13 +209,27 @@ export default function Navigation() {
 
       handleScroll();
 
-      if (Math.abs(hoverProgressRef.current - hoverTargetRef.current) > 0.001) {
+      const isHoverAnimating =
+        Math.abs(hoverProgressRef.current - hoverTargetRef.current) > 0.001;
+      const hasMouseMoveTail =
+        performance.now() < mouseMoveTailUntilRef.current;
+
+      if (isHoverAnimating || hasMouseMoveTail) {
         scheduleWireUpdate();
       }
     });
   };
 
+  const [windowSize, setWindowSize] = useState([0, 0]);
+
+  const hoveredFrameScale =
+    1.08712e-10 * windowSize[0] ** 3 -
+    4.44574e-7 * windowSize[0] ** 2 +
+    0.000629502 * windowSize[0] +
+    0.641167;
+
   const handleResize = () => {
+    setWindowSize([window.innerWidth, window.innerHeight]);
     refreshConnectionElements();
     updateWireColors();
     resizeWireCanvas();
@@ -258,6 +274,11 @@ export default function Navigation() {
       scheduleWireUpdate();
     };
 
+    const handleWindowMouseMove = () => {
+      mouseMoveTailUntilRef.current = performance.now() + MOUSE_MOVE_TAIL_MS;
+      scheduleWireUpdate();
+    };
+
     const mutationObserver = new MutationObserver(() => {
       refreshConnectionElements();
       scheduleWireUpdate();
@@ -275,6 +296,9 @@ export default function Navigation() {
     handleResize();
     document.addEventListener("mouseover", handleDocumentMouseOver);
     document.addEventListener("mouseout", handleDocumentMouseOut);
+    window.addEventListener("mousemove", handleWindowMouseMove, {
+      passive: true,
+    });
     window.addEventListener("scroll", handleWindowScroll, { passive: true });
     window.addEventListener("resize", handleResize);
     scheduleWireUpdate();
@@ -285,6 +309,7 @@ export default function Navigation() {
       if (scrollRafRef.current !== null) {
         window.cancelAnimationFrame(scrollRafRef.current);
       }
+      window.removeEventListener("mousemove", handleWindowMouseMove);
       window.removeEventListener("scroll", handleWindowScroll);
       window.removeEventListener("resize", handleResize);
     };
@@ -406,9 +431,15 @@ export default function Navigation() {
             data-frame="true"
           ></div>
         </div>
-        <div className="absolute z-1 inset-0 pointer-events-none p-4">
-          <canvas ref={wireCanvasRef} />
-        </div>
+      </div>
+      <div
+        className="absolute z-1 inset-0 p-4 origin-top pointer-events-none"
+        style={{
+          transform: `scale(${isSidebarHovered ? hoveredFrameScale : 1}) translateY(${isSidebarHovered ? "36px" : "0"})`,
+          transition: sideBarTransition,
+        }}
+      >
+        <canvas ref={wireCanvasRef} />
       </div>
       <div
         className="absolute z-1 inset-[0_32px_auto_32px] flex items-center justify-center gap-8"

@@ -55,7 +55,7 @@ export default function JoinUs() {
 
       if (nextActive) {
         nextActive.style.backgroundColor =
-          "color-mix(in oklab, var(--stroke) 5%, transparent)";
+          "color-mix(in oklab, var(--stroke) 2.5%, transparent)";
       }
 
       activeSquare = nextActive;
@@ -74,21 +74,21 @@ export default function JoinUs() {
   return (
     <section className="relative border-t border-b border-(--stroke)/10 overflow-hidden">
       <div
-        className="absolute inset-[-1px_-1px_auto_-1px] h-full grid grid-cols-16 gap-0 hidden"
+        className="absolute inset-[-1px_-1px_auto_-1px] h-full grid grid-cols-16 gap-0"
         ref={bgSquaresRef}
       >
         {[...Array(16 * 6)].map((_, i) => (
           <div
             key={i}
-            className="w-full aspect-square border-[0.5px] border-(--stroke)/10 duration-2000"
+            className="w-full aspect-square border-[0.5px] border-(--stroke)/10 duration-200"
           ></div>
         ))}
       </div>
       <div className="relative flex flex-col items-center justify-start py-20 gap-10">
         <h2 className="">Join us if you:</h2>
-        <div className="w-full max-w-[500px] flex flex-col items-stretch gap-6">
+        <div className="w-full max-w-[500px] flex flex-col items-stretch">
           <div
-            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] duration-200"
+            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] py-2 duration-200"
             data-connection="blue"
           >
             <Connector type="dot" />
@@ -106,7 +106,7 @@ export default function JoinUs() {
             </div>
           </div>
           <div
-            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] duration-200"
+            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] py-2 duration-200"
             data-connection="blue"
           >
             <Connector type="dot" />
@@ -121,7 +121,7 @@ export default function JoinUs() {
             </div>
           </div>
           <div
-            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] duration-200"
+            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] py-2 duration-200"
             data-connection="blue"
           >
             <Connector type="dot" />
@@ -139,7 +139,7 @@ export default function JoinUs() {
             </div>
           </div>
           <div
-            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] duration-200"
+            className="relative grid grid-cols-1 grid-rows-[auto_auto_0fr] hover:grid-rows-[auto_auto_1fr] py-2 duration-200"
             data-connection="blue"
           >
             <Connector type="dot" />

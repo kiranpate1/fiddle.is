@@ -409,12 +409,85 @@ export default function Footer() {
             We are hiring product engineers in SF
           </h3>
           <div
-            className="relative flex items-center justify-center px-4 py-3.5 bg-(--orange)/15 rounded-lg cursor-pointer"
+            className="group relative"
             data-connection="orange"
             ref={applyNowRef}
           >
             <Connector type="line" />
-            <p className="caption text-(--orange)!">Apply now</p>
+            <div className="grid grid-cols-[0fr_auto_0fr] group-hover:grid-cols-[1fr_auto_1fr] items-center justify-items-center gap-4 duration-200">
+              <a
+                className="w-full flex items-center gap-2 overflow-hidden justify-end"
+                href="https://fiddle.is/careers"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 4H5C4.20435 4 3.44129 4.31607 2.87868 4.87868C2.31607 5.44129 2 6.20435 2 7V17C2 17.7956 2.31607 18.5587 2.87868 19.1213C3.44129 19.6839 4.20435 20 5 20H19C19.7956 20 20.5587 19.6839 21.1213 19.1213C21.6839 18.5587 22 17.7956 22 17V7C22 6.20435 21.6839 5.44129 21.1213 4.87868C20.5587 4.31607 19.7956 4 19 4ZM19 6L12.5 10.47C12.348 10.5578 12.1755 10.604 12 10.604C11.8245 10.604 11.652 10.5578 11.5 10.47L5 6H19Z"
+                    fill="color-mix(in oklab, var(--text) 70%, var(--background))"
+                  />
+                </svg>
+                <p className="caption">email</p>
+              </a>
+              <div className="relative flex items-center justify-center px-4 py-3.5 bg-(--orange)/15 group-hover:bg-transparent rounded-lg cursor-pointer duration-200">
+                <svg
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  width="100%"
+                  viewBox="0 0 119 53"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    className="[stroke-dasharray:44_88] [stroke-dashoffset:176] group-hover:[stroke-dashoffset:88] duration-200"
+                    d="M59.5 0.5H8.5C4.08172 0.5 0.5 4.08172 0.5 8.5V26.5"
+                    stroke="var(--orange)"
+                  />
+                  <path
+                    className="[stroke-dasharray:44_88] [stroke-dashoffset:176] group-hover:[stroke-dashoffset:88] duration-200"
+                    d="M59.5 52.5H8.5C4.08172 52.5 0.5 48.9183 0.5 44.5V26.5"
+                    stroke="var(--orange)"
+                  />
+                  <path
+                    className="[stroke-dasharray:44_88] [stroke-dashoffset:176] group-hover:[stroke-dashoffset:88] duration-200"
+                    d="M59.5 0.5H110.5C114.918 0.5 118.5 4.08172 118.5 8.5V26.5"
+                    stroke="var(--orange)"
+                  />
+                  <path
+                    className="[stroke-dasharray:44_88] [stroke-dashoffset:176] group-hover:[stroke-dashoffset:88] duration-200"
+                    d="M59.5 52.5H110.5C114.918 52.5 118.5 48.9183 118.5 44.5V26.5"
+                    stroke="var(--orange)"
+                  />
+                </svg>
+
+                <p className="caption text-(--orange)!">Apply now</p>
+              </div>
+              <a
+                className="w-full flex items-center gap-2 overflow-hidden justify-start"
+                href="https://fiddle.is/careers"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="caption">twitter</p>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22.46 6C21.69 6.35 20.86 6.58 20 6.69C20.88 6.16 21.56 5.32 21.88 4.31C21.05 4.81 20.13 5.16 19.16 5.36C18.37 4.5 17.26 4 16 4C13.65 4 11.73 5.92 11.73 8.29C11.73 8.63 11.77 8.96 11.84 9.27C8.28004 9.09 5.11004 7.38 3.00004 4.79C2.63004 5.42 2.42004 6.16 2.42004 6.94C2.42004 8.43 3.17004 9.75 4.33004 10.5C3.62004 10.5 2.96004 10.3 2.38004 10V10.03C2.38004 12.11 3.86004 13.85 5.82004 14.24C5.19088 14.4129 4.53008 14.4369 3.89004 14.31C4.16165 15.1625 4.69358 15.9084 5.41106 16.4429C6.12854 16.9775 6.99549 17.2737 7.89004 17.29C6.37371 18.4905 4.49405 19.1394 2.56004 19.13C2.22004 19.13 1.88004 19.11 1.54004 19.07C3.44004 20.29 5.70004 21 8.12004 21C16 21 20.33 14.46 20.33 8.79C20.33 8.6 20.33 8.42 20.32 8.23C21.16 7.63 21.88 6.87 22.46 6Z"
+                    fill="color-mix(in oklab, var(--text) 70%, var(--background))"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
         <div className="relative w-full">

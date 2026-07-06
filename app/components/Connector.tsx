@@ -8,6 +8,8 @@ export default function Connector({ type }: Props) {
       <div
         className="absolute top-1/2 -translate-y-1/2 -left-4 -translate-x-full w-8 h-px bg-(--stroke)/20 rounded-4xl pointer-events-none duration-200"
         style={{
+          // top: type === "line" ? "50%" : "16px",
+          // transform: `translate(${type === "line" ? "-50%, -50%" : "0, -50%"})`,
           width: type === "line" ? "32px" : "16px",
         }}
       >
