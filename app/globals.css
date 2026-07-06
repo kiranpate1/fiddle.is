@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text: #d5edff;
+  --stroke: #78bcff;
+  --orange: #ff9900;
 }
 
 @theme inline {
@@ -48,7 +51,7 @@ h2 {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 28px;
   letter-spacing: -0.04em;
   line-height: 1.35;
   font-weight: 400;
@@ -60,6 +63,8 @@ p {
   letter-spacing: 0em;
   line-height: 1.5;
   font-weight: 400;
+  color: color-mix(in oklab, var(--text) 90%, var(--background));
+  text-wrap: pretty;
 }
 
 p.caption {
@@ -71,8 +76,23 @@ p.caption {
   margin: 0;
   white-space: pre;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 0.6666vw;
+  font-size: calc((100vw - 64px) * 0.006666);
   line-height: 1.25;
   letter-spacing: 0;
+  color: color-mix(in oklab, var(--text) 90%, var(--background));
   overflow: hidden;
+}
+
+div[data-connection]:hover > div:nth-child(1) > div {
+  width: 50dvw !important;
+}
+div[data-connection]:hover > div:nth-child(1) > div > div {
+  height: 1px;
+}
+
+div[data-connection="blue"]:hover > div:nth-child(1) > div {
+  background-color: var(--stroke);
+}
+div[data-connection="orange"]:hover > div:nth-child(1) > div {
+  background-color: var(--orange);
 }
