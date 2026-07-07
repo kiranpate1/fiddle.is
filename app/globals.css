@@ -5,6 +5,10 @@
   --text: #d5edff;
   --stroke: #78bcff;
   --orange: #ff9900;
+  --goldengate: #ffcc00;
+  --salesforce: #00a1e0;
+  --transamerica: #e60028;
+  --ascii-unit: calc((100vw - 64px) * 0.006666);
 }
 
 @theme inline {
@@ -76,11 +80,20 @@ p.caption {
   margin: 0;
   white-space: pre;
   font-family: var(--font-geist-mono), monospace;
-  font-size: calc((100vw - 64px) * 0.006666);
+  font-size: var(--ascii-unit);
   line-height: 1.25;
   letter-spacing: 0;
   color: color-mix(in oklab, var(--text) 90%, var(--background));
   overflow: hidden;
+}
+.ascii.highlight {
+  position: absolute;
+  font-weight: 1000;
+  text-shadow: 0 0 1px var(--background);
+  opacity: 0;
+  pointer-events: none;
+  overflow: visible;
+  cursor: zoom-in;
 }
 
 @media (max-width: 768px) {

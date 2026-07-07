@@ -1,105 +1,22 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import ascii from "./ascii";
 import Connector from "./Connector";
+import Highlight from "./Highlight";
 
 export default function Footer() {
   const applyNowRef = useRef<HTMLDivElement>(null);
   const moonAsciiRef = useRef<HTMLPreElement>(null);
   const fiddleAsciiRef = useRef<HTMLPreElement>(null);
   const sfAsciiRef = useRef<HTMLPreElement>(null);
+  const moonAscii = ascii.moonAscii;
+  const fiddleAscii = ascii.fiddleAscii;
+  const sfAscii = ascii.sfAscii;
+  const salesforceAscii = ascii.salesforceAscii;
+  const transamericaAscii = ascii.transamericaAscii;
+  const goldengateAscii = ascii.goldengateAscii;
 
-  const moonAscii = `
-
-
-
-
-
-
-
-
-                                                                   .+
-                                                                +++
-                                                             .++++
-                                                            ,+++++
-                                                           .++++++
-                                                           +++++++
-                                                           ++++++++
-                                                           +++++++++ 
-                                                           ‘++++++++++              +’
-                                                            ‘+++++++++++++       +++’
-                                                             ‘+++++++++++++++++++++’
-                                                                +++++++++++++++++
-                                                                   ‘+++++++++’`;
-  const fiddleAscii = `
-
-
-
-
-
-
-                                                                                                   +++++++++++                      +++++                  +++++      +++
-                                                                                                ++++++    ++++++                  +++++++                +++++++  +++++++
-                                                                     ++++++++.                ++++++        +++++                   +++++                 ++++++   ++++++
-                                                                   ++++++++++++++             +++++          ++++                   +++++                 ++++++    +++++
-                                                                  +++++++++++++++++.          +++++                                 +++++                 ++++++    +++++
-                                                                  ++++++++++++++++++,     +++++++++++++++    -++++       ++++++++++++++++       ++++++++++++++++    +++++       ++++++++++++
-                                                                  +++++++++++++++++++.        +++++        +++++++     +++++      +++++++     ++++-     ++++++++    +++++     +++++     +++++-
-                                                                  ++++++++++++++++++++        +++++         ++++++   ++++++        ++++++   +++++         ++++++    +++++    ++++        +++++
-                                                                   +++++++++++++++++++        +++++         ++++++   +++++          +++++  ++++++         ++++++    +++++   +++++       ++++++
-                                                                    ++++++++++++++++++        +++++         ++++++  -+++++          +++++  ++++++         ++++++    +++++  ++++++     +++++++
-                                                                      +++++++++++++++         +++++         ++++++  ++++++          +++++  ++++++         ++++++    +++++  +++++++++++++++
-                                                                          +++++++             +++++         ++++++   ++++++         +++++  ++++++-        ++++++    +++++   ++++++           ++
-                                                                                              +++++         ++++++   +++++++       -+++++   ++++++        ++++++    +++++    +++++++       ++++
-                                                                                             ++++++-        +++++++    +++++++    ++++++++    ++++++    +++++++++  +++++++    ++++++++++++++++
-                                                                                            +++++++++      +++++++++      +++++++++ +++++++      +++++++++ ++++++-+++++++++      ++++++++++
-
-
-
-
-
-
-
-
-                                                                                            `;
-  const sfAscii = `
-                                                                                                                                                                                                /\\
-                                                                                                                                                                                                @@
-                                                                                                                                                                                                @@
-                                                                                                                                                                                                @@
-                                                                                                                                                                                               %@@%
-                                                                                                                                                                                               @@@@
-                                                                                                                                                                                               @@@@
-                                                                                                                                                                                               @@@@
-                                                                                                                                                                                             #@@@@@@#
-                                                                                                                                                                                             #@@@@@@#
-                                                                                                                                                                                             #@@@@@@#
-                                                                                                                                                                                             #@@@@@@#
-                                                                                                                                                                                    *        #@@@@@@#           ##
-                                                                                                                                                       ====                         *        #@@@@@@#           *#
-                        %     @                                                                                                                        ====              =================== #@@@@@@#           **
-                       %@@@@@@@%                                                                                                                     -======-            =================== %@@@@@@%     ==============
-                    %%%%@@@@@@@@%                                                                                                        =          ========-=           =================== %@@@@@@%     =-==========-=
-                 %%%##%%@@ @%%@@#%%                                                                                                 ======-=    ****+=======-=           =================== %@@@@@@%     =-==========-=                      *******
-              %%%%#%%%##@@ #%%@@# %%                                                                                                ======-=    *****=======-=   +++*    ==============++=== %@@@@@@% **  =-==========-=                    ***********
-           %%%%#%%% **##@@@@@@@%# ##%                                                                                               ======-=    *****=======-=   *********+===========+@@=== @@@@@@@@*****=-==========-=                    ***********
-        %%%%#%%% #* **##@@   %@%% ###%%                                             *  *                                            ======-=    *****=======-=   **********==========*%@@%==+@@@@@@@@*****=-==========-=                    ***********
-     %%%# %%%# * ** **##@@   @@@#%%#*##%                                            *****                                           ======-=    *****=====+**+*+-**********==========*@@@@++*@@@@@@@@*****=-==========-=                    ***********
-  %@#* #%%# #* * ** **##@@%@@@@@# #%####%@                                          *****                                           ======-=++  *****=====******-**********==========*@@@%++*@@@@@@@@*****=-==========-=        *#          ***********
-+ +#%% ***# *+ * ** +**#@@@@%@@@* *#%%#*##%                                         *****        +==++                       ===========+****** *****=====******-**********========*@@@@@@++*@@@@@@@@*****@%==========-=      ******=====   ***********
-#%#++* ***# *+ * #* +**#@@   @@@* *#*#@## #%@                                       ****+        ===========                 ==-======-=+****** *****=====******-**********========+@@@@@@++#@@@@@@@@#***@@@%-====+++++=      #*****===-=   ***********
-+ ++*+ +++# ** * ** *+##@@   @@%* ****#%%###%@                                      ****+        ===========                 ==-======-=+****** *****=====*****+-**********========+@@@@@@**#@@@@@@@@#**#@@@@+-==+********#   %*****===-=   ***********
-+ +++* +++# ** * ** *+*#@@   @@%* ****##%%%#*#%%                                    *****        ===========            #*****=-======-=+****** *****=====*****+-*********#%*+=====+@@@@@@#*@@@@@@@@@%**#@@@@+===********** #@@%****===-=   ***********
-+ +=++ +++# *+ * ** *+*#@@@@@@@%* ****#*#*#%%#*#%%                       @@@@       ****+        ===========  @%+=======#*****=-======-=+****** *****=====******+********#%@@@@%+==*@@@@@@%#@@@@@@@@@%**#@@@@+===********** @@@@#***===-=   ***********
-+ =++* *+*# *+ * ** +**#@@   @@@* *#**#** #*#%%* #%%                    %%%%%@      ****+ *****  =========== @@@#=======#*****=-======-=+****** *****=====******+********#%@@@@%***%@@@@@@%#@@@@@@@@@%**#@@@@+===********** %@@@#***===*+*+ ***********
-+ +++* ***# *+ * ** ***#@@   @@@* *#**#** #**##%%#*#%%                 %%%%%%%      ****+***********========#@@@@+-=====#*****=-======-=+****** *****=====******+**@@@@@@@@@@@@@@@#%@@@@@@%%@@@@@@@@@@**#@@@@*===********** @@@@***********************
-* **** *+*# #* * ** **##@@   @@@* ****#*###**##* #%%##%%%  #*****    %%#%#%%#*%     ****+***********========%@@@@#-=====#*****=-+++*++-=+*****#####**=====*#####***@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@#*#@@@@*===***********@@@@***********************
-%#%%%%@%%%%%%%%%%%%%%%%%@@%%%%@%%%%%%%%%%%#**#**#*#*#%%%#%%%##### %%%%%#*##*@*#%    ****#@@@@@#*****+*+****#@@@@@@******#*****=-@@@@@@-=+*****@@@@@#*=====*@@@@@@**@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@%+***********@@@@***********************
-%@@%@@%@@@%@@%@%%%%%%%%%@%%%%%@%%%%%%%%#%############%%%%%%%%@%%%%%%%##**##*%#*%    *%@@@@@@@@@@@%**@@@@@@@@@@@@@@@@@@@@@@#*@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@**@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@%%#@@@#%@##%@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%
-@@@@@@@@@@@@@@@@        @@@@@@@@ %  #%%%#######****+++++*##**###%%%%%%%%%%@%%%%#%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@%@@@@@@@@@@@@@%%%%%%%%%%@%@%%%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`;
   useEffect(() => {
     const triggerEl = applyNowRef.current;
     const fiddleEl = fiddleAsciiRef.current;
@@ -354,24 +271,112 @@ export default function Footer() {
       sfAscii.replace(/[^\n\r]/g, " "),
     );
 
-    const onEnter = () => {
+    let isStickyHoverActive = false;
+
+    const highlightEls = Array.from(
+      document.querySelectorAll(".ascii.highlight"),
+    ) as HTMLPreElement[];
+
+    const runEnterEffects = () => {
       fiddleAnimator.start("dissolve");
       fiddleTranslateAnimator.start("down");
       sfAnimator.start("restore");
+      highlightEls.forEach((el) => {
+        el.style.pointerEvents = "auto";
+      });
     };
 
-    const onLeave = () => {
+    const runLeaveEffects = () => {
       fiddleAnimator.start("restore");
       fiddleTranslateAnimator.start("up");
       sfAnimator.start("dissolve");
+      highlightEls.forEach((el) => {
+        el.style.pointerEvents = "none";
+      });
     };
 
+    const isPointerInsideTrigger = (target: EventTarget | null) =>
+      target instanceof Node && triggerEl.contains(target);
+
+    const isPointerBelowTrigger = (clientY: number) =>
+      clientY >= triggerEl.getBoundingClientRect().bottom;
+
+    const clearStickyHover = () => {
+      if (!isStickyHoverActive) return;
+      isStickyHoverActive = false;
+      runLeaveEffects();
+    };
+
+    const onEnter = () => {
+      isStickyHoverActive = true;
+      runEnterEffects();
+    };
+
+    const onTriggerLeave = (event: MouseEvent) => {
+      if (!isStickyHoverActive) return;
+
+      // Keep hover effects active when pointer leaves trigger downward.
+      if (
+        isPointerInsideTrigger(event.relatedTarget) ||
+        isPointerBelowTrigger(event.clientY)
+      ) {
+        return;
+      }
+
+      clearStickyHover();
+    };
+
+    const onWindowMouseMove = (event: MouseEvent) => {
+      if (!isStickyHoverActive) return;
+
+      // Outside trigger and above trigger bottom should always end hover effects.
+      if (
+        !isPointerInsideTrigger(event.target) &&
+        !isPointerBelowTrigger(event.clientY)
+      ) {
+        clearStickyHover();
+      }
+    };
+
+    // highlight hovers
+
+    const buildingHighlight = (
+      element: HTMLElement | null,
+      variable?: string,
+    ) => {
+      element ? (element.style.opacity = variable ? "1" : "0") : null;
+      const root = document.documentElement;
+      const newColor = `color-mix(in oklab, var(--${variable}) 70%, var(--background))`;
+      root.style.setProperty("--text", variable ? newColor : "#d5edff");
+      root.style.setProperty("--stroke", variable ? newColor : "#78bcff");
+      root.style.setProperty("--orange", variable ? newColor : "#ff9900");
+    };
+
+    highlightEls.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        buildingHighlight(el, el.dataset.highlight);
+      });
+      el.addEventListener("mouseleave", () => {
+        buildingHighlight(el);
+      });
+    });
+
     triggerEl.addEventListener("mouseenter", onEnter);
-    triggerEl.addEventListener("mouseleave", onLeave);
+    triggerEl.addEventListener("mouseleave", onTriggerLeave);
+    window.addEventListener("mousemove", onWindowMouseMove, { passive: true });
 
     return () => {
+      highlightEls.forEach((el) => {
+        el.removeEventListener("mouseenter", () => {
+          buildingHighlight(el, el.dataset.highlight);
+        });
+        el.removeEventListener("mouseleave", () => {
+          buildingHighlight(el);
+        });
+      });
       triggerEl.removeEventListener("mouseenter", onEnter);
-      triggerEl.removeEventListener("mouseleave", onLeave);
+      triggerEl.removeEventListener("mouseleave", onTriggerLeave);
+      window.removeEventListener("mousemove", onWindowMouseMove);
       fiddleAnimator.stop();
       fiddleTranslateAnimator.stop();
       sfAnimator.stop();
@@ -417,7 +422,7 @@ export default function Footer() {
             className="group relative"
             data-connection="orange"
             ref={applyNowRef}
-            onMouseEnter={() => setCommandText(`npm apply to Fiddle`)}
+            onMouseEnter={() => setCommandText(`npm apply Fiddle`)}
             onMouseLeave={() => setCommandText("")}
           >
             <Connector type="line" />
@@ -427,10 +432,13 @@ export default function Footer() {
                 href="https://fiddle.is/careers"
                 target="_blank"
                 rel="noopener noreferrer"
-                onMouseEnter={() =>
-                  setOutputText("Send us an email at viba@fiddle.is")
-                }
-                onMouseLeave={() => setOutputText("")}
+                onMouseEnter={() => {
+                  setCommandText("npm apply Fiddle --email");
+                  setOutputText("viba@fiddle.is");
+                }}
+                onMouseLeave={() => {
+                  setOutputText("");
+                }}
               >
                 <svg
                   width="24"
@@ -446,7 +454,10 @@ export default function Footer() {
                 </svg>
                 <p className="caption">email</p>
               </a>
-              <div className="relative flex items-center justify-center px-4 py-3.5 bg-(--orange)/15 group-hover:bg-transparent rounded-lg cursor-pointer duration-200">
+              <div
+                className="relative flex items-center justify-center px-4 py-3.5 bg-(--orange)/15 group-hover:bg-transparent rounded-lg cursor-pointer duration-200"
+                onMouseEnter={() => setCommandText(`npm apply Fiddle`)}
+              >
                 <svg
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   width="100%"
@@ -483,10 +494,13 @@ export default function Footer() {
                 href="https://fiddle.is/careers"
                 target="_blank"
                 rel="noopener noreferrer"
-                onMouseEnter={() =>
-                  setOutputText("DM us on Twitter @vibamohan_")
-                }
-                onMouseLeave={() => setOutputText("")}
+                onMouseEnter={() => {
+                  setCommandText("npm apply Fiddle --twitter");
+                  setOutputText("@vibamohan_");
+                }}
+                onMouseLeave={() => {
+                  setOutputText("");
+                }}
               >
                 <p className="caption">twitter</p>
                 <svg
@@ -518,6 +532,58 @@ export default function Footer() {
             <pre className="ascii" ref={sfAsciiRef}>
               {sfAscii}
             </pre>
+            <pre
+              className="ascii highlight text-(--goldengate)!"
+              data-highlight="goldengate"
+              style={{
+                top: "calc(var(--ascii-unit) * 14 * 1.25)",
+                left: "calc(var(--ascii-unit) * 0 * 1.2473 * 5.66/11.77)",
+              }}
+            >
+              <Highlight
+                name="Golden Gate Bridge"
+                coords="37.8199°, -122.4783°"
+              />
+              {goldengateAscii}
+            </pre>
+            <pre
+              className="ascii highlight text-(--salesforce)!"
+              data-highlight="salesforce"
+              style={{
+                top: "calc(var(--ascii-unit) * 6 * 1.25)",
+                left: "calc(var(--ascii-unit) * 129 * 1.2473 * 5.66/11.77)",
+              }}
+            >
+              <Highlight
+                name="Salesforce Tower"
+                coords="37.7897°, -122.3942°"
+              />
+              {salesforceAscii}
+            </pre>
+            <pre
+              className="ascii highlight text-(--transamerica)!"
+              data-highlight="transamerica"
+              style={{
+                top: "calc(var(--ascii-unit) * 0 * 1.25)",
+                left: "calc(var(--ascii-unit) * 186 * 1.2473 * 5.66/11.77)",
+              }}
+            >
+              <Highlight
+                name="Transamerica Pyramid"
+                coords="37.7952°, -122.4028°"
+              />
+              {transamericaAscii}
+            </pre>
+            {/* <div
+              className="absolute top-0 left-0 bg-yellow-300"
+              style={{
+                top: "calc(var(--ascii-unit) * 18 * 1.248)",
+                left: "calc(var(--ascii-unit) * 60 * 1.248 * 5.66/11.77)",
+                width: "calc(var(--ascii-unit) * 1 * 1.25 * 5.66/11.77)",
+                height: "calc(var(--ascii-unit) * 1 * 1.25)",
+              }}
+            ></div>
+            <pre className="ascii absolute">a</pre> */}
           </div>
         </div>
       </div>
