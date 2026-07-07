@@ -395,31 +395,42 @@ export default function Footer() {
     };
   }, []);
 
+  // set additional terminal text
+  const [commandText, setCommandText] = useState("");
+  const [outputText, setOutputText] = useState("");
+
   return (
     <section className="">
-      <div className="relative h-[calc(100dvh-64px)] flex flex-col items-center justify-between pt-16">
+      <div className="relative h-[450px] md:h-[calc(100dvh-64px)] flex flex-col items-center justify-between pt-16">
         <div className="absolute top-4 left-4">
           <pre className="ascii text-(--stroke)/80!">
             {currentDate || "Logging in..."} <br />
-            user@Fiddle.is ~ %
+            user@Fiddle.is ~ % {commandText} <br />
+            {outputText}
           </pre>
         </div>
         <div className="flex flex-col items-center gap-8">
-          <h3 className="w-full max-w-[310px] text-center">
+          <h3 className="w-full max-w-[320px] px-4! text-center">
             We are hiring product engineers in SF
           </h3>
           <div
             className="group relative"
             data-connection="orange"
             ref={applyNowRef}
+            onMouseEnter={() => setCommandText(`npm apply to Fiddle`)}
+            onMouseLeave={() => setCommandText("")}
           >
             <Connector type="line" />
             <div className="grid grid-cols-[0fr_auto_0fr] group-hover:grid-cols-[1fr_auto_1fr] items-center justify-items-center gap-4 duration-200">
               <a
-                className="w-full flex items-center gap-2 overflow-hidden justify-end"
+                className="w-full flex items-center gap-2 overflow-hidden justify-end brightness-100 hover:brightness-200 duration-200"
                 href="https://fiddle.is/careers"
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() =>
+                  setOutputText("Send us an email at viba@fiddle.is")
+                }
+                onMouseLeave={() => setOutputText("")}
               >
                 <svg
                   width="24"
@@ -468,10 +479,14 @@ export default function Footer() {
                 <p className="caption text-(--orange)!">Apply now</p>
               </div>
               <a
-                className="w-full flex items-center gap-2 overflow-hidden justify-start"
+                className="w-full flex items-center gap-2 overflow-hidden justify-start brightness-100 hover:brightness-200 duration-200"
                 href="https://fiddle.is/careers"
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() =>
+                  setOutputText("DM us on Twitter @vibamohan_")
+                }
+                onMouseLeave={() => setOutputText("")}
               >
                 <p className="caption">twitter</p>
                 <svg
@@ -490,7 +505,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="relative w-full">
+        <div className="relative w-full origin-bottom scale-160 md:scale-100">
           <div className="absolute inset-[0_0_auto_0] overflow-hidden">
             <pre className="ascii absolute" ref={moonAsciiRef}>
               {moonAscii}
