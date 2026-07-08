@@ -415,8 +415,17 @@ export default function Footer() {
           </pre>
         </div>
         <div className="flex flex-col items-center gap-8">
-          <h3 className="w-full max-w-[320px] px-4! text-center">
-            We are hiring product engineers in SF
+          <h3 className="w-full max-w-[450px] px-4! text-center">
+            We are hiring{" "}
+            <a
+              className="underline decoration-[0.5px] underline-offset-4 hover:decoration-(--stroke) hover:text-(--stroke) duration-200"
+              href="https://thezbook.com/code-first-vs-product-first"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              product first
+            </a>{" "}
+            engineers in SF
           </h3>
           <div
             className="group relative"

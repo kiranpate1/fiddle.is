@@ -99,8 +99,8 @@ export default function JoinUs() {
             <div className="overflow-hidden">
               <div className="pt-2">
                 <p className="text-(--text)/50!">
-                  This is a test of body content and what it might look like
-                  when a bullet point is expanded out.
+                  If your career has been nonlinear, cannot be defined by a
+                  rubric and still high-signal, you’ll fit right in!
                 </p>
               </div>
             </div>
@@ -114,8 +114,8 @@ export default function JoinUs() {
             <div className="overflow-hidden">
               <div className="pt-2">
                 <p className="text-(--text)/50!">
-                  This is a test of body content and what it might look like
-                  when a bullet point is expanded out.
+                  Our engineers don't just care about code, they care deeply
+                  about user problems. good enough is rarely enough
                 </p>
               </div>
             </div>
@@ -132,8 +132,8 @@ export default function JoinUs() {
             <div className="overflow-hidden">
               <div className="pt-2">
                 <p className="text-(--text)/50!">
-                  This is a test of body content and what it might look like
-                  when a bullet point is expanded out.
+                  We love strong opinions, but we love it even more when people
+                  can update their priors.
                 </p>
               </div>
             </div>
@@ -147,8 +147,8 @@ export default function JoinUs() {
             <div className="overflow-hidden">
               <div className="pt-2">
                 <p className="text-(--text)/50!">
-                  This is a test of body content and what it might look like
-                  when a bullet point is expanded out.
+                  The best people care a little too much, move quickly and
+                  obsess over the details
                 </p>
               </div>
             </div>
