@@ -114,8 +114,8 @@ export default function JoinUs() {
             <div className="overflow-hidden">
               <div className="pt-2">
                 <p className="text-(--text)/50!">
-                  Our engineers don't just care about code, they care deeply
-                  about user problems. good enough is rarely enough
+                  {`Our engineers don't just care about code, they care deeply
+                  about user problems. good enough is rarely enough.`}
                 </p>
               </div>
             </div>
